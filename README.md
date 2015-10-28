@@ -9,9 +9,9 @@ Oluiden arvostelujärjestelmä toteutettuna Node.js:llä
 - Kirjoita arvostelu yksittäiselle oluelle
 
 ##Tuntikirjanpito
-- 26.10.2015: `<Kuvaus>` `<Tuntimäärä>`  
+- 26.10.2015: `Projektin aloittaminen ja aloitusluento` `4h`  
 
-##Continuous integration
+Yhteensä: 4h
+
+##Esikatselu palvelimella
 Linkki tulossa
-
-Yhteensä:
