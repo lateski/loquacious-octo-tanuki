@@ -9,9 +9,11 @@ Oluiden arvostelujärjestelmä toteutettuna Node.js:llä
 - Kirjoita arvostelu yksittäiselle oluelle
 
 ##Tuntikirjanpito
-- 26.10.2015: `Projektin aloittaminen ja aloitusluento` `4h`  
+- 26.10.2015: Projektin aloittaminen ja aloitusluento 4h
+- 7.11.2015: MongoDB tutustumista ja projektin suunnittelu 6h
+- 8.11.2015: CRUD toiminnallisuuksie tekoa 5h
 
-Yhteensä: 4h
+Yhteensä: 15h
 
 ##Esikatselu palvelimella
 Linkki tulossa

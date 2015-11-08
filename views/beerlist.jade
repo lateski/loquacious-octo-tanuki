@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1= title
+  each beer in beers.length ? beers : ['There are no beers :(']
+    h2= beer.name + ' - ' + beer.abv
+    p= beer.brewery
+    p= beer.beertype
