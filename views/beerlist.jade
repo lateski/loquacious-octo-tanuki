@@ -5,8 +5,8 @@ block content
   div(class='panel-group')
     each beer in beers.length ? beers : [{'name':'There are no beers :(', 'abv':'0%'}]
       div(class='panel panel-default')
-        div(class='panel-heading')
-          a(href='#{beer.name}')
+        div(class='panel-heading' )
+          a(href='beers/#{beer.name}')
             h2= beer.name + ' - ' + beer.abv
         div(class='panel-body')
           p= beer.brewery
