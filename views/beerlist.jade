@@ -2,7 +2,36 @@ extends layout
 
 block content
   h1= title
-  each beer in beers.length ? beers : ['There are no beers :(']
-    h2= beer.name + ' - ' + beer.abv
-    p= beer.brewery
-    p= beer.beertype
+  div(class='panel-group')
+    each beer in beers.length ? beers : [{'name':'There are no beers :(', 'abv':'0%'}]
+      div(class='panel panel-default')
+        div(class='panel-heading')
+          a(href='#{beer.name}')
+            h2= beer.name + ' - ' + beer.abv
+        div(class='panel-body')
+          p= beer.brewery
+          p= beer.beertype
+  div.well
+    form(action='/beers' method='POST' enctype='application/x-www-form-urlencoded' role='form' class='form-horizontal')
+      div(class='form-group')
+        label(for='name' class='control-label col-sm-2') Name
+        div(class='col-sm-10')
+          input(type='text' id='name' name='name' class="form-control")
+
+      div(class='form-group')
+        label(for='brewery' class='control-label col-sm-2') Brewery
+        div(class='col-sm-10')
+          input(type='text' id='brewery' name='brewery' class="form-control")
+
+      div(class='form-group')
+        label(for='abv' class='control-label col-sm-2') ABV
+        div(class='col-sm-10')
+          input(type='text' id='abv' name='abv' class="form-control")
+
+      div(class='form-group')
+        label(for='beertype'  class='control-label col-sm-2') Beertype
+        div(class='col-sm-10')
+          input(type='text' id='beertype' name='beertype' class="form-control")
+      div(class='form-group')
+        div(class='col-sm-offset-2 col-sm-10')
+          button(type='submit' class='btn btn-default') Submit
