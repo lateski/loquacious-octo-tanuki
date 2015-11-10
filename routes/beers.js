@@ -1,18 +1,16 @@
 var express = require('express')
 var router = express.Router();
 var mongoose = require('mongoose');
+var ObjectId = mongoose.Types.ObjectId;
 var Beer = require('../models/beer');
 
 
 
-
-
-var myLogger = function (req, res, next) {
-  console.log('LOGGED');
+router.use(function (req, res, next) {
+  console.log('Time:', Date.now());
   next();
-};
+});
 
-router.use(myLogger);
 
 // Parameter for single beer currently takes urlencoded values and trys to find them from database
 router.param('beer', function(req, res,  next, id){
@@ -27,6 +25,26 @@ router.param('beer', function(req, res,  next, id){
     }
   });
 });
+
+router.use('/:beer/delete',function (req, res, next){
+  next();
+})
+
+router.get('/:beer/delete', function (req, res, next) {
+  Beer.findById(req.beer._id, function(err, beer) {
+    if(err) {
+      next(err);
+    } else if (beer) {
+      beer.remove(function (err, beer){
+        if(err) {
+          next(err);
+        }
+      })
+    }
+  });
+
+  res.redirect('/')//res.send('Haluat siis poistaa oluen ! '+ req.beer.name);
+})
 
 router.get('/:beer', function(req, res, next){
   if (req.beer == null) {

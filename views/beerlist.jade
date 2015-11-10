@@ -14,11 +14,17 @@ block content
     each beer in beers.length ? beers : [{'name':'There are no beers :(', 'abv':'0%'}]
       div(class='panel panel-default')
         div(class='panel-heading' )
-          a(href='/#{beer.name}')
-            h2= beer.name + ' - ' + beer.abv
+          div.row
+            div.col-md-10
+              a(href='/#{beer.name}')
+                h2= beer.name + ' - ' + beer.abv
+            div.col-md-1
+              sa(class='btn btn-danger', href='#{beer.name}/delete', role='button') Poista
         div(class='panel-body')
           p= beer.brewery
           p= beer.beertype
+
+
   div.well
     form(action='/', method='POST', enctype='application/x-www-form-urlencoded', role='form', class='form-horizontal')
       div(class='form-group')
