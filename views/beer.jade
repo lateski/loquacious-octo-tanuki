@@ -1,5 +1,21 @@
 extends layout
 
 block content
-  h1= beer.name
-  p Welcome to #{beer.brewery}
+  div.container
+    h1= beer.name
+    div(class='panel panel-default')
+      div(class='panel-body')
+        p You are at the page of #{beer.brewery}'s #{beer.beertype} beer
+        table(class='table table-bordered')
+          tr
+            th Name
+            td= beer.name
+          tr
+            th Type
+            td= beer.beertype
+          tr
+            th ABV
+            td= beer.abv
+          tr
+            th Brewery
+            td= beer.brewery 
