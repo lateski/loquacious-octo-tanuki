@@ -24,9 +24,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
 
-app.use('/', routes);
+//app.use('/', routes);
 //app.use('/users', users);
-app.use('/beers', beers);
+app.use('/', beers);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
