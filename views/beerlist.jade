@@ -13,14 +13,14 @@ block content
   div(class='panel-group')
     each beer in beers.length ? beers : [{'name':'There are no beers :(', 'abv':'0%'}]
       div(class='panel panel-default')
-        div(class='panel-heading' )
+        div(class='panel panel-heading' )
           div.row
             div.col-md-10
               a(href='/#{beer.name}')
                 h2= beer.name + ' - ' + beer.abv
             div.col-md-1
               a(class='btn btn-danger', href='#{beer.name}/delete', role='button') Poista
-        div(class='panel-body')
+        div(class='panel panel-body')
           p= beer.brewery
           p= beer.beertype
 

@@ -72,6 +72,24 @@ router.get('/', function (req, res, next) {
   });
 });
 
+router.post('/:beer/comment', function (req, res, next){
+  Beer.findById(req.beer._id, function(err, beer){
+    if(err){
+      next(err);
+    } else if (beer){
+      console.dir(req.body);
+      beer.reviews.push({name:req.body.name, comment: req.body.comment, reviewdate: Date.now()});
+      beer.save(function (err, newBeer){
+        if (err){console.log(err.errors);
+          next(err);
+        }
+      });
+      res.render('beer', {beer: beer});
+    }
+  });
+});
+
+
 router.post('/', function (req, res, next) {
   var newBeer;
   console.log(req.body);
@@ -82,7 +100,7 @@ router.post('/', function (req, res, next) {
     if (err) console.log(err.errors);
   });
   Beer.find(function (err, beers){
-    if (err) return console.error(err);
+    if (err) next(err);
     res.render('beerlist', { title: 'Oluet', beers: beers })
   });
 });
