@@ -13,9 +13,10 @@ Oluiden arvostelujärjestelmä toteutettuna Node.js:llä
 - 7.11.2015: MongoDB tutustumista ja projektin suunnittelu 6h
 - 8.11.2015: CRUD toiminnallisuuksie tekoa 5h
 - 9.11.2015: yksittäisen olue listaaminen 6h
+- 10.11.2015: open graph tageja, sekä siistimistä 4h
 
-Yhteensä: 21h
+Yhteensä: 25h
 
 ##Esikatselu palvelimella
-[Täällä](http://keisari.net:3000/beers "oluet")
+[Täällä](http://olut.keisari.net "oluet")
 Päivittyy manuaalisesti joten ei välttämättä ole ajantasalla.

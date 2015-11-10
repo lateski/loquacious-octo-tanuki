@@ -28,7 +28,7 @@ router.param('beer', function(req, res,  next, id){
   });
 });
 
-router.get('/:beer', function(req, res){
+router.get('/:beer', function(req, res, next){
   if (req.beer == null) {
     res.status(404);
     var beerNotFound = new Error("Beer not found");
@@ -38,14 +38,22 @@ router.get('/:beer', function(req, res){
   res.render('beer', {beer : req.beer})
 });
 
-router.get('/', function (req, res) {
+//Returns full URL and sets it into req.gsetUrl
+router.use(function(req, res, next) {
+    req.getUrl = function() {
+      return req.protocol + "://" + req.get('host') + req.originalUrl;
+    }
+    return next();
+});
+
+router.get('/', function (req, res, next) {
   Beer.find( function (err, beers){
     if (err) return console.error(err);
-    res.render('beerlist', { title: 'Oluet', beers: beers })
+    res.render('beerlist', { title: 'Oluet', beers: beers, currentUrl: req.getUrl() })
   });
 });
 
-router.post('/', function (req, res) {
+router.post('/', function (req, res, next) {
   var newBeer;
   console.log(req.body);
   newBeer = new Beer(req.body);

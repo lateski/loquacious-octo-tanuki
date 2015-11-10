@@ -1,5 +1,11 @@
 extends layout
 
+block metaog
+  meta(property='og:title', content='Olut Keisarin olutlista')/
+  meta(property='og:type', content='website')/
+  meta(property='og:url', content='#{currentUrl}')/
+  meta(property='og:image', content='http://olut.keisari.net/favicon.ico')/
+
 block content
   h1= title
   div(class='alert alert-info')
