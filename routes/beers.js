@@ -14,6 +14,7 @@ var myLogger = function (req, res, next) {
 
 router.use(myLogger);
 
+// Parameter for single beer currently takes urlencoded values and trys to find them from database
 router.param('beer', function(req, res,  next, id){
   Beer.find({'name': id }, function(err, beer){
     if(err) {
@@ -28,7 +29,12 @@ router.param('beer', function(req, res,  next, id){
 });
 
 router.get('/:beer', function(req, res){
-  console.log(req.beer)
+  if (req.beer == null) {
+    res.status(404);
+    var beerNotFound = new Error("Beer not found");
+    beerNotFound.status = 404;
+    res.render('error', {message:'Beer was not found :(', error:beerNotFound});
+  }
   res.render('beer', {beer : req.beer})
 });
 
