@@ -19,7 +19,7 @@ block content
               a(href='/#{beer.name}')
                 h2= beer.name + ' - ' + beer.abv
             div.col-md-1
-              sa(class='btn btn-danger', href='#{beer.name}/delete', role='button') Poista
+              a(class='btn btn-danger', href='#{beer.name}/delete', role='button') Poista
         div(class='panel-body')
           p= beer.brewery
           p= beer.beertype
