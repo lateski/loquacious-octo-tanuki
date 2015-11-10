@@ -41,7 +41,8 @@ router.get('/:beer', function(req, res, next){
 //Returns full URL and sets it into req.gsetUrl
 router.use(function(req, res, next) {
     req.getUrl = function() {
-      return req.protocol + "://" + req.get('host') + req.originalUrl;
+      //HARDcoded value because req.get('host') does not work when proxying with apache
+      return req.protocol + "://olut.keisari.net" + req.originalUrl;
     }
     return next();
 });
